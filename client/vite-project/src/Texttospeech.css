@@ -1,0 +1,56 @@
+
+.tts-container {
+    background-color: #0a0a0a;          /* Dark background */
+    color: #fff;                        /* White text */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .tts-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  .tts-textarea {
+    width: 100%;
+    max-width: 600px;
+    height: 150px;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+    margin-bottom: 20px;
+  }
+  
+  .tts-button {
+    padding: 12px 25px;
+    background-color: #00bfff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 20px;
+  }
+  
+  .tts-button:hover {
+    background-color: #009acd;
+  }
+  
+  .tts-preview {
+    font-size: 16px;
+    color: #ccc;
+    max-width: 600px;
+    word-wrap: break-word;
+  }
+  

@@ -1,0 +1,41 @@
+.home-container {
+    background-color: #0a0a0a;            /* Dark background for consistency */
+    color: #fff;                          /* White text */
+    min-height: 100vh;                    /* Full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .home-title {
+    font-size: 36px;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+  
+  .home-subtitle {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 25px;
+  }
+  
+  .home-note {
+    font-size: 16px;
+    color: #ddd;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+  
+  .home-note span {
+    color: #00bfff;                      /* Highlight free message text */
+    font-weight: 600;
+  }
+  
+  .home-note strong {
+    color: #00bfff;                      /* Highlight Login/Signup */
+    cursor: pointer;
+  }
+  

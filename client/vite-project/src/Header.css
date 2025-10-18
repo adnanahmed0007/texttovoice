@@ -1,0 +1,51 @@
+nav {
+    background-color: #000;          /* Black background */
+    padding: 15px 40px;
+    display: flex;
+    justify-content: flex-end;       /* Push links to right */
+    align-items: center;
+  }
+  
+  ul {
+    display: flex;
+    gap: 40px;                       /* Equal spacing */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li a {
+    color: #fff;                     /* White text */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.2s ease;
+  }
+  
+  /* ✅ White underline under all links */
+  li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    opacity: 1;
+  }
+  
+  /* Optional subtle hover effect */
+  li a:hover {
+    color: #00bfff;
+    opacity: 0.9;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  
+  
