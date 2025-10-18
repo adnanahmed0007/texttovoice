@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./Login.css"
+import axios from 'axios'
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -11,10 +12,19 @@ const Login = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(formData)
-        alert("Login attempted (demo)")
+        try {
+            const response = await axios.post(
+                "http://localhost:9923/authentication/api/login",
+                formData, { withCredentials: true }
+            );
+            console.log(response.data);
+            alert("Login successful");
+        } catch (error) {
+            console.error("Login error:", error);
+            alert("Login failed");
+        }
     }
 
     return (
@@ -28,6 +38,7 @@ const Login = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    autoComplete='email'
                 />
                 <input
                     type="password"
@@ -36,6 +47,7 @@ const Login = () => {
                     value={formData.password}
                     onChange={handleChange}
                     required
+                    autoComplete='password'
                 />
                 <button type="submit">Login</button>
             </form>

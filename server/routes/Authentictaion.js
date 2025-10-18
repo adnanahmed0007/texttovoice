@@ -1,0 +1,10 @@
+import Signup from "../controllers/Signup.js";
+import LoginController from "../controllers/Login.js";
+import Verifyjtw from "../middleware/Verifyjtw.js";
+import Userquestionsaved from "../controllers/Userquestionsaved.js";
+import express from "express";
+const router = express.Router();
+router.post("/api/signup", Signup);
+router.post("/api/login", LoginController);
+router.post("/api/savedquestion", Verifyjtw, Userquestionsaved);
+export default router;

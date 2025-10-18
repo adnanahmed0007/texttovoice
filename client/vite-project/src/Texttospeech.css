@@ -1,56 +1,98 @@
-
 .tts-container {
-    background-color: #0a0a0a;          /* Dark background */
-    color: #fff;                        /* White text */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 30px;
+  background: #195b66;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+ 
+
+.tts-container:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.tts-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.tts-textarea {
+  width: 100%;
+  height: 120px;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  outline: none;
+  resize: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.tts-textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 6px rgba(74, 144, 226, 0.3);
+}
+
+.tts-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.tts-button:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
+}
+
+.tts-button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.tts-answer {
+  margin-top: 25px;
+  background-color: #f7f9fb;
+  padding: 18px;
+  border-radius: 10px;
+  border-left: 5px solid #4a90e2;
+  text-align: left;
+}
+
+.tts-answer h3 {
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.tts-answer p {
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .tts-container {
+    margin: 40px 20px;
     padding: 20px;
   }
-  
+
   .tts-title {
-    font-size: 32px;
-    margin-bottom: 20px;
-    font-weight: 700;
+    font-size: 1.6rem;
   }
-  
+
   .tts-textarea {
-    width: 100%;
-    max-width: 600px;
-    height: 150px;
-    padding: 15px;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
-    resize: none;
-    outline: none;
-    margin-bottom: 20px;
+    height: 100px;
   }
-  
-  .tts-button {
-    padding: 12px 25px;
-    background-color: #00bfff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    margin-bottom: 20px;
-  }
-  
-  .tts-button:hover {
-    background-color: #009acd;
-  }
-  
-  .tts-preview {
-    font-size: 16px;
-    color: #ccc;
-    max-width: 600px;
-    word-wrap: break-word;
-  }
-  
+}

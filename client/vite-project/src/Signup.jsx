@@ -1,6 +1,6 @@
-
-import React, { useState } from 'react'
-import "./Signup.css"
+import React, { useState } from 'react';
+import "./Signup.css";
+import axios from "axios";
 
 const Signup = () => {
     const [formData, setFormData] = useState({
@@ -9,22 +9,54 @@ const Signup = () => {
         phone: "",
         password: "",
         confirmPassword: ""
-    })
+    });
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value })
-    }
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        // Simple validation example
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
         if (formData.password !== formData.confirmPassword) {
-            alert("Passwords do not match")
-            return
+            alert("Passwords do not match");
+            return;
         }
-        console.log(formData)
-        alert("Signup successful! (This is a demo)")
-    }
+
+        try {
+            const response = await axios.post(
+                "http://localhost:9923/authentication/api/signup",
+                formData,
+                { withCredentials: true }
+            );
+            setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                password: "",
+                confirmPassword: ""
+            });
+
+            alert(response.data.message); // Show backend message
+            console.log(response.data);
+
+        } catch (error) {
+            setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                password: "",
+                confirmPassword: ""
+            });
+
+            if (error.response?.data?.message) {
+                alert(error.response.data.message);
+            } else {
+                alert("An unexpected error occurred");
+            }
+            console.log(error);
+        }
+    };
 
     return (
         <div className="signup-container">
@@ -37,6 +69,7 @@ const Signup = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    autoComplete="name"
                 />
                 <input
                     type="email"
@@ -45,6 +78,7 @@ const Signup = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    autoComplete="email"
                 />
                 <input
                     type="tel"
@@ -53,6 +87,7 @@ const Signup = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
+                    autoComplete="tel"
                 />
                 <input
                     type="password"
@@ -61,6 +96,7 @@ const Signup = () => {
                     value={formData.password}
                     onChange={handleChange}
                     required
+                    autoComplete="new-password"
                 />
                 <input
                     type="password"
@@ -69,12 +105,12 @@ const Signup = () => {
                     value={formData.confirmPassword}
                     onChange={handleChange}
                     required
+                    autoComplete="new-password"
                 />
                 <button type="submit">Sign Up</button>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default Signup
-
+export default Signup;
